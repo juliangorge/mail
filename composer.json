@@ -1,0 +1,16 @@
+{
+    "name": "juliangorge/mail",
+    "description": "Module of Mail",
+    "autoload": {
+        "psr-4": {
+            "Juliangorge\\Mail\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Julián",
+            "email": "juliangorge@hotmail.com"
+        }
+    ],
+    "require": {}
+}
