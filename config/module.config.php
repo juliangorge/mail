@@ -10,4 +10,11 @@ return [
 	'mail_charset'		=> 'UTF-8',
 	'mail_from'			=> 'test@juliangorge.com.ar',
 	'mail_name'			=> 'Test',
+	
+    'service_manager' => [
+        'factories' => [
+            Service\MailSender::class => Service\Factory\MailSenderFactory::class,
+            Service\MailTransport::class => Service\Factory\MailTransportFactory::class,
+        ],
+    ],
 ];
