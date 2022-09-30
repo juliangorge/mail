@@ -13,8 +13,8 @@ return [
 	
     'service_manager' => [
         'factories' => [
-            Service\MailSender::class => Service\Factory\MailSenderFactory::class,
-            Service\MailTransport::class => Service\Factory\MailTransportFactory::class,
+            \Juliangorge\Mail\Service\MailSender::class => \Juliangorge\Mail\Service\Factory\MailSenderFactory::class,
+            \Juliangorge\Mail\Service\MailTransport::class => \Juliangorge\Mail\Service\Factory\MailTransportFactory::class,
         ],
     ],
 ];
