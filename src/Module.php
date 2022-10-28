@@ -1,8 +1,6 @@
 <?php
 namespace Juliangorge\Mail;
 
-use Laminas\Mvc\MvcEvent;
-
 class Module 
 {
 

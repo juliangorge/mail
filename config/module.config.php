@@ -1,4 +1,8 @@
-<?php 
+<?php
+
+declare(strict_types=1);
+
+namespace Juliangorge\Mail;
 
 return [
 	'mail_host'			=> '',
@@ -16,5 +20,13 @@ return [
             \Juliangorge\Mail\Service\MailSender::class => \Juliangorge\Mail\Service\Factory\MailSenderFactory::class,
             \Juliangorge\Mail\Service\MailTransport::class => \Juliangorge\Mail\Service\Factory\MailTransportFactory::class,
         ],
+    ],
+    'controller_plugins' => [
+        'factories' => [
+            Plugin\MailPlugin::class => Plugin\Factory\MailPluginFactory::class,
+        ],
+        'aliases' => [
+            'mail' => Plugin\MailPlugin::class
+        ]
     ],
 ];
