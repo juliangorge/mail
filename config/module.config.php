@@ -14,6 +14,7 @@ return [
 	'mail_charset'		=> 'UTF-8',
 	'mail_from'			=> 'test@juliangorge.com.ar',
 	'mail_name'			=> 'Test',
+    'mail_smtp_auto_tls'=> true,
 	
     'service_manager' => [
         'factories' => [

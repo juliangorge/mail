@@ -17,7 +17,13 @@ class Mail
 	    $this->mail->SMTPAuth = true;
 	    $this->mail->Username = $config['mail_username'];
 	    $this->mail->Password = $config['mail_password'];
-	    $this->mail->SMTPSecure = $config['mail_smtpsecure'];
+
+	    if(!$config['mail_smtp_auto_tls']){
+	    	$this->mail->SMTPAutoTLS = false;
+	    }else{
+	    	$this->mail->SMTPSecure = $config['mail_smtpsecure'];
+	    }
+
 	    $this->mail->Port = $config['mail_port'];
 	    $this->mail->CharSet = $config['mail_charset'];
 	    $this->mail->setFrom($config['mail_from'], $config['mail_name']);
