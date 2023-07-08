@@ -33,7 +33,7 @@ class Mail
 
 	public function setFrom($from, $name)
 	{
-	    $this->mail->setFrom($mail_from, $mail_name);
+	    $this->mail->setFrom($from, $name);
 	}
 
 
@@ -41,6 +41,10 @@ class Mail
 	{
 		if($returnErrors){
 			if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+				throw new \Exception('Invalid email: "' . $email . '"');
+			}
+
+			if(!$this->mail->validateAddress($email)){
 				throw new \Exception('Invalid email: "' . $email . '"');
 			}
 
