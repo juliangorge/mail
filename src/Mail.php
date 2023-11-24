@@ -11,29 +11,29 @@ class Mail
 	public function __construct(array $config)
 	{
 		$this->mail = new PHPMailer(true);
-	    $this->mail->isSMTP();
-	    $this->mail->isDebug = $config['mail_debug'];
-	    $this->mail->Host = $config['mail_host'];
-	    $this->mail->SMTPAuth = true;
-	    $this->mail->Username = $config['mail_username'];
-	    $this->mail->Password = $config['mail_password'];
+		$this->mail->isSMTP();
+		$this->mail->SMTPDebug = $config['mail_debug'];
+		$this->mail->Host = $config['mail_host'];
+		$this->mail->SMTPAuth = true;
+		$this->mail->Username = $config['mail_username'];
+		$this->mail->Password = $config['mail_password'];
 
-	    if(!$config['mail_smtp_auto_tls']){
-	    	$this->mail->SMTPAutoTLS = false;
-	    }else{
-	    	$this->mail->SMTPSecure = $config['mail_smtpsecure'];
-	    }
+		if(!$config['mail_smtp_auto_tls']){
+			$this->mail->SMTPAutoTLS = false;
+		}else{
+			$this->mail->SMTPSecure = $config['mail_smtpsecure'];
+		}
 
-	    $this->mail->Port = $config['mail_port'];
-	    $this->mail->CharSet = $config['mail_charset'];
-	    $this->mail->setFrom($config['mail_from'], $config['mail_name']);
+		$this->mail->Port = $config['mail_port'];
+		$this->mail->CharSet = $config['mail_charset'];
+		$this->mail->setFrom($config['mail_from'], $config['mail_name']);
 
-	    return $this;
+		return $this;
 	}
 
 	public function setFrom($from, $name)
 	{
-	    $this->mail->setFrom($from, $name);
+		$this->mail->setFrom($from, $name);
 	}
 
 
@@ -66,7 +66,7 @@ class Mail
             $this->mail->send();
             $this->mail->clearAllRecipients();
         } catch (\Throwable $e) {
-        	if($returnErrors) throw new \Exception($e->getMessage());
+			if($returnErrors) throw new \Exception($e->getMessage());
         }
 	}
 
